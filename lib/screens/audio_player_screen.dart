@@ -54,12 +54,15 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
                   ),
                 ),
                 SizedBox(height: 20.h,),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(musicProvider.songs[musicProvider.currentIndex].title,style: theme.textTheme.bodyText1?.copyWith(fontWeight: FontWeight.w700),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center),
-                    Text(musicProvider.songs[musicProvider.currentIndex].displayName,style: theme.textTheme.bodyText2?.copyWith(color: theme.textTheme.bodyText2?.color?.withOpacity(.5)),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
-                  ],
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 26.w),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(musicProvider.songs[musicProvider.currentIndex].title,style: theme.textTheme.bodyText1?.copyWith(fontWeight: FontWeight.w700),maxLines: 2,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center),
+                      Text(musicProvider.songs[musicProvider.currentIndex].displayName,style: theme.textTheme.bodyText2?.copyWith(color: theme.textTheme.bodyText2?.color?.withOpacity(.5)),maxLines: 2,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 16.h,),
                 Row(
