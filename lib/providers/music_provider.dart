@@ -68,7 +68,7 @@ class MusicProvider extends ChangeNotifier{
     );
 
     await audioPlayer.setAudioSource(playlist, initialIndex: _currentIndex, initialPosition: Duration.zero);
-    await audioPlayer.setShuffleModeEnabled(true);
+    await audioPlayer.setShuffleModeEnabled(false);
 
     loadingAudioPlayer = false;
   }
@@ -88,6 +88,15 @@ class MusicProvider extends ChangeNotifier{
     }
 
 
+  }
+
+  void removeSong(int index) {
+    try{
+      _songs.removeAt(index);
+      notifyListeners();
+    }catch(e){
+      print(e);
+    }
   }
 
 

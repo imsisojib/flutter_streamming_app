@@ -6,8 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_streaming_app/providers/music_provider.dart';
 import 'package:flutter_streaming_app/resources/app_images.dart';
 import 'package:flutter_streaming_app/router/routes.dart';
-import 'package:flutter_streaming_app/screens/audio_player_screen.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 
@@ -54,6 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             },
             child: CustomScrollView(
+              physics: BouncingScrollPhysics(),
               slivers: [
                 SliverAppBar(
                   backgroundColor: theme.scaffoldBackgroundColor,
@@ -127,7 +126,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Text(musicProvider.songs[index].displayName,style: theme.textTheme.bodyText2?.copyWith(color: theme.textTheme.bodyText2?.color?.withOpacity(.5)),maxLines: 1,overflow: TextOverflow.ellipsis,),
                                 ],
                               ),),
-                              IconButton(onPressed: (){}, icon: Icon(
+                              IconButton(onPressed: (){
+                                musicProvider.removeSong(index);
+                              }, icon: Icon(
                                   Icons.clear
                               ),),
                             ],
