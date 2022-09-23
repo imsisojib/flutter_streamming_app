@@ -38,6 +38,7 @@ class MusicProvider extends ChangeNotifier{
       songs[_currentIndex].id,
       ArtworkType.AUDIO,
     );
+    notifyListeners();
   }
 
   void readAudioMusicFromLocal()async{
